@@ -46,6 +46,6 @@ python train1.py
 pip install 필요한 모듈명
 ex) pip install pandas
 ```
-전처리가 모두 진행되면 
-<img src = "./ScreenShots/3.png" width="60%">
+전처리가 모두 진행되면  
+<img src = "./ScreenShots/3.png" width="60%">  
 위와 같이 data폴더에서 학습데이터가 잘 생성되었음을 알 수 있습니다.
