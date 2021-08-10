@@ -28,7 +28,7 @@ os.makedirs(out_dir + '/spec', exist_ok=True)
 # text 전처리
 print('Load Text')
 text_len = []
-# 위에서 저장한 문장의 개수만큼 for문 실행
+# 위에서 저장한 문장의 개수만큼 for문 실행 enumerate(tqdm())은 진행률 표시
 for idx, s in enumerate(tqdm(text)):
     # 문장에서 filters애 등록했던 문자들을 제거
     sentence = re.sub(re.compile(filters), '', s)
@@ -43,11 +43,14 @@ for idx, s in enumerate(tqdm(text)):
 np.save(os.path.join(out_dir + '/text_len.npy'), np.array(text_len))
 print('Text Done')
 
-# audio
+# audio 전처리
 print('Load Audio')
 mel_len_list = []
+# 저장된 파일경로의 개수만큼 for문 실행
 for idx, fn in enumerate(tqdm(wav_dir)):
+    # 파일의 정확한 경로 설정
     file_dir = './kss/'+ fn
+    # 파일 로드 후 mel, spec, dec 계산
     wav, _ = librosa.load(file_dir, sr=sample_rate)
     wav, _ = librosa.effects.trim(wav)
     wav = np.append(wav[0], wav[1:] - preemphasis * wav[:-1])
@@ -72,9 +75,11 @@ for idx, fn in enumerate(tqdm(wav_dir)):
         mel_spec = np.pad(mel_spec, [[0, reduction - remainder], [0, 0]], mode='constant')
         stft = np.pad(stft, [[0, reduction - remainder], [0, 0]], mode='constant')
 
+    # 파일이름 지정후 mel폴더에 저장
     mel_name = 'kss-mel-%05d.npy' % idx
     np.save(os.path.join(out_dir + '/mel', mel_name), mel_spec, allow_pickle=False)
 
+    # 파일이름 지정후 spec폴더에 저장
     stft_name = 'kss-spec-%05d.npy' % idx
     np.save(os.path.join(out_dir + '/spec', stft_name), stft, allow_pickle=False)
 
@@ -82,9 +87,11 @@ for idx, fn in enumerate(tqdm(wav_dir)):
     mel_spec = mel_spec.reshape((-1, mel_dim * reduction))
     dec_input = np.concatenate((np.zeros_like(mel_spec[:1, :]), mel_spec[:-1, :]), axis=0)
     dec_input = dec_input[:, -mel_dim:]
+    # 파일이름 지정후 dec폴더에 저장
     dec_name = 'kss-dec-%05d.npy' % idx
     np.save(os.path.join(out_dir + '/dec', dec_name), dec_input, allow_pickle=False)
 
+# 모든 저장이 끝난 후 mel 길이를 저장해둔 배열도 저장
 mel_len = sorted(mel_len_list)
 np.save(os.path.join(out_dir + '/mel_len.npy'), np.array(mel_len))
 print('Audio Done')
