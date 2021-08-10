@@ -1,12 +1,6 @@
 # Tensorflow_Tacotron1_TTS
 Tacotron1과 음성데이터를 이용한 TTS만들기
 
-
-참조  
-chldkato님 gitgub  
-https://github.com/chldkato/Tacotron-Korean-Tensorflow2
-  
-  
 ## 1. 실행환경 만들기
 ### 1-1 Anaconda3 설치 및 가상환경 만들기
 Anaconda3(https://www.anaconda.com/products/individual) 사이트에 들어가서 중간쯤 내리면 다운로드 페이지가 나오는데 본인의 환경에 맞는 Anaconda3를 다운로드 및 설치를 해줍니다.
@@ -136,3 +130,9 @@ python test.py
 <img src = "./ScreenShots/5.png" width="60%">  
    
 이 예제로 생성된 음성파일은 바로 재생이 불가능하여 업로드 해두었습니다.  
+  
+  
+### 참조  
+chldkato님 gitgub  
+https://github.com/chldkato/Tacotron-Korean-Tensorflow2
+  
