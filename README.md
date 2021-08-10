@@ -132,5 +132,7 @@ python test.py
          |- align-0.png
          |- mel-0.npy
    ```
+생성된 alignment이미지  
+<img src = "./ScreenShots/5.png" width="60%">  
    
 이 예제로 생성된 음성파일은 바로 재생이 불가능하여 업로드 해두었습니다.  
