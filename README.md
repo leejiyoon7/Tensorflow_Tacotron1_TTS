@@ -26,10 +26,29 @@ prompt에 (base)가 아닌 (tensorflow)로 시작하게 바뀌었다면 제대�
 ## 2. 학습에 필요한 데이터셋 만들기
 이 코드에서는 Kaggle에서 제공하는 KSS데이터 셋을 다운받아 사용했습니다.  (https://www.kaggle.com/bryanpark/korean-single-speaker-speech-dataset)  
 다운로드 받아 압축을 푼 후 코드가 있는 프로젝트 폴더에 이미지와 같이 넣어주시면 됩니다.  
-<img src = "./ScreenShots/1.png" width="60%">
+<img src = "./ScreenShots/1.png" width="60%">  
+ ```
+   코드가 있는 폴더
+     |- kss
+         |- 1
+         |- 2
+         |- 3
+         |- 4
+         |- transcript.v.1.4.txt
+   ```
   
 그 후 같은 구글 드라이브 폴더안에 있는 models와 util폴더도 다운로드 받아 코드와 같은 경로에 넣어줍니다.  
-<img src = "./ScreenShots/2.png" width="60%">
+<img src = "./ScreenShots/2.png" width="60%">  
+```
+   코드가 있는 폴더
+     |- models
+         |- modules.py
+         |- tacotron.py
+     |- util
+         |- hparams.py
+         |- plot_alignment.py
+         |- text.py
+   ```
 
 ## 3. 코드 실행
 ### 3-1 전처리
