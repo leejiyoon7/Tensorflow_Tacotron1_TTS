@@ -17,16 +17,21 @@ __conda create -n tensorflow python=3.8__
 가상환경이 만들어지면 __activate tensorflow__ 명령을 사용해 가상환경으로 들어가줍니다.  
 prompt에 (base)가 아닌 (tensorflow)로 시작하게 바뀌었다면 제대로 들어온 것입니다.
 
-### 1-2 주피터 노트북 설치하기
-위와같이 tensorflow 가상환경에서 __conda install jupyter notebook__ 명령을 사용하여 설치를 진행해줍니다.  
-설치가 완료되면 __jupyter notebook__ 을 통해 주피터 노트북을 실행할 수 잇습니다.
-
 ## 2. 학습에 필요한 데이터셋 만들기
 이 코드에서는 Kaggle에서 제공하는 KSS데이터 셋을 다운받아 사용했습니다.  (https://www.kaggle.com/bryanpark/korean-single-speaker-speech-dataset)  
 다운로드 받아 압축을 푼 후 코드가 있는 프로젝트 폴더에 이미지와 같이 넣어주시면 됩니다.  
-<img src = "./ScreenShots/1.png" width="40%">
+<img src = "./ScreenShots/1.png" width="60%">
   
 그 후 같은 구글 드라이브 폴더안에 있는 models와 util폴더도 다운로드 받아 코드와 같은 경로에 넣어줍니다.  
-<img src = "./ScreenShots/2.png" width="40%">
+<img src = "./ScreenShots/2.png" width="60%">
 
-학습에 필요한 데이터를 만들기 위해 아래와같은 코드를 실행합니다.  
+## 3. 코드 실행
+anaconda prompt에서 가까 만들었던 가상환경으로 접속한 후 코드가 있는 폴더로 이동해 줍니다.  
+  ```
+  __cd 코드가 있는 파일 경로__
+  ```   
+이동했으면 train1.py코드를 싱행시켜서 학습해 줍니다.  
+```
+__python train1.py__
+```
+
