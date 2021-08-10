@@ -50,8 +50,7 @@ prompt에 (base)가 아닌 (tensorflow)로 시작하게 바뀌었다면 제대�
          |- text.py
    ```
 
-## 3. 코드 실행
-### 3-1 전처리
+## 3. 전처리
 anaconda prompt에서 가까 만들었던 가상환경으로 접속한 후 코드가 있는 폴더로 이동해 줍니다.  
   ```
   cd 코드가 있는 파일 경로
@@ -66,5 +65,22 @@ pip install 필요한 모듈명
 ex) pip install pandas
 ```
 전처리가 모두 진행되면  
-<img src = "./ScreenShots/3.png" width="60%">  
+ ```
+   코드가 있는 폴더
+     |- data
+         |- dec
+         |- mel
+         |- spec
+         |- text
+         |- mel_len.npy
+         |- text_len.npy
+   ```
 위와 같이 data폴더에서 학습데이터가 잘 생성되었음을 알 수 있습니다.
+
+## 4. 학습 진행
+### 4-1 임배딩 ~ 디코더 학습
+
+아래와 같은 코드를 사용하여 학습을 시작합니다.
+```
+python train1.py
+```
