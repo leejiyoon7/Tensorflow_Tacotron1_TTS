@@ -30,7 +30,7 @@ prompt에 (base)가 아닌 (tensorflow)로 시작하게 바뀌었다면 제대�
 이 코드에서는 Kaggle에서 제공하는 KSS데이터 셋을 다운받아 사용했습니다.  (https://www.kaggle.com/bryanpark/korean-single-speaker-speech-dataset)  
 다운로드 받아 압축을 푼 후 코드가 있는 프로젝트 폴더에 이미지와 같이 넣어주시면 됩니다.   
  ```
-   코드가 있는 폴더
+   Tensorflow_Tacotron1_TTS
      |- kss
          |- 1
          |- 2
@@ -38,19 +38,6 @@ prompt에 (base)가 아닌 (tensorflow)로 시작하게 바뀌었다면 제대�
          |- 4
          |- transcript.v.1.4.txt
    ```
-  
-그 후 같은 구글 드라이브 폴더안에 있는 models와 util폴더도 다운로드 받아 코드와 같은 경로에 넣어줍니다.  
-```
-   코드가 있는 폴더
-     |- models
-         |- modules.py
-         |- tacotron.py
-     |- util
-         |- hparams.py
-         |- plot_alignment.py
-         |- text.py
-   ```
-  
   
 ## 3. 전처리
 anaconda prompt에서 가까 만들었던 가상환경으로 접속한 후 코드가 있는 폴더로 이동해 줍니다.  
@@ -71,7 +58,7 @@ ex) pip install pandas
 
 전처리가 모두 진행되면  
  ```
-   코드가 있는 폴더
+   Tensorflow_Tacotron1_TTS
      |- data
          |- dec
          |- mel
@@ -119,5 +106,30 @@ checkpoint/1에서 생성되는이미지를 보면서 어느정도 학습이 된
 * 169000 epoch  
 <img src = "./ScreenShots/4.png" width="60%">
   
-  
-  
+### 4-2 Attention 학습
+아래 코드를 이용하여 4-2과 마찬가지로 학습을 진행하면 되고  
+역시 똑같이 checkpoint_step만큼 학습이 진행될때마다 모델이 checkpoint/2에 저장됩니다.  
+```
+python train2.py
+```
+마찬가지로 학습이 어느정도 진행되었다면 정지버튼을 눌러 종료해주시면 됩니다.  
+5만 epoch 이상을 권장합니다.  
+
+## 5. 테스트
+test.py 코드 안 sentences를 만들고 싶은 말로 바꾸어 저장해줍니다.  (특수문자 제외 한글만)  
+```
+sentences = ['안녕하세요 반갑습니다']
+```
+test코드를 실행해 줍니다.  
+```
+python test.py
+```
+실행이 완료되면 output폴더에 alignment이미지와 npy파일, wav파일이 생성됩니다.
+ ```
+   Tensorflow_Tacotron1_TTS
+     |- output
+         |- 0.wav
+         |- align-0.png
+         |- mel-0.npy
+   ```
+   
