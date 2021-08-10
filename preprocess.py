@@ -28,12 +28,18 @@ os.makedirs(out_dir + '/spec', exist_ok=True)
 # text 전처리
 print('Load Text')
 text_len = []
+# 위에서 저장한 문장의 개수만큼 for문 실행
 for idx, s in enumerate(tqdm(text)):
+    # 문장에서 filters애 등록했던 문자들을 제거
     sentence = re.sub(re.compile(filters), '', s)
+    # text_to_sequence를 이용하여 문장을 분리
     sentence = text_to_sequence(sentence)
+    # 분리된 sequence의 길이를 배열에 저장
     text_len.append(len(sentence))
+    # 파일의 이름 지정 후 text폴더에 저장
     text_name = 'kss-text-%05d.npy' % idx
     np.save(os.path.join(out_dir + '/text', text_name), sentence, allow_pickle=False)
+# 모든 저장이 끝난 후 sequence의 길이를 저장해둔 배열도 저장
 np.save(os.path.join(out_dir + '/text_len.npy'), np.array(text_len))
 print('Text Done')
 
