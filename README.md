@@ -32,6 +32,7 @@ prompt에 (base)가 아닌 (tensorflow)로 시작하게 바뀌었다면 제대�
 <img src = "./ScreenShots/2.png" width="60%">
 
 ## 3. 코드 실행
+### 3-1 전처리
 anaconda prompt에서 가까 만들었던 가상환경으로 접속한 후 코드가 있는 폴더로 이동해 줍니다.  
   ```
   cd 코드가 있는 파일 경로
@@ -40,4 +41,11 @@ anaconda prompt에서 가까 만들었던 가상환경으로 접속한 후 코�
 ```
 python train1.py
 ```
-
+만약 실행시 학습에 필요한 모듈이 없다고 나올때는 anaconda prompt상에서 가상환경에 들어간 후 아래 명령을 실행하면 설치가 진행됩니다.
+```
+pip install 필요한 모듈명
+ex) pip install pandas
+```
+전처리가 모두 진행되면 
+<img src = "./ScreenShots/3.png" width="60%">
+위와 같이 data폴더에서 학습데이터가 잘 생성되었음을 알 수 있습니다.
