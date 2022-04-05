@@ -39,9 +39,9 @@ anaconda prompt에서 가까 만들었던 가상환경으로 접속한 후 코�
   cd 코드가 있는 파일 경로
   ```
   
-이동했으면 train1.py코드를 싱행시켜서 학습해 줍니다.  
+이동했으면 preprocess.py코드를 실행시켜서 학습해 줍니다.  
 ```
-python train1.py
+python preprocess.py
 ```
   
 만약 실행시 학습에 필요한 모듈이 없다고 나올때는 anaconda prompt상에서 가상환경에 들어간 후 아래 명령을 실행하면 설치가 진행됩니다.
